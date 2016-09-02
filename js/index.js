@@ -2,11 +2,13 @@
   //var ciudadp = document.getElementById("ciudad").value;
 //}
 
-$(document).ready(function() {
+function ciudad() {
+    var ciudadp = document.getElementById("ciudades").value;
+    var temperaturap = document.getElementById("temperatura").value;
     $.simpleWeather({
-    location: 'Austin, TX',
+    location: ciudadp,
     woeid: '',
-    unit: 'f',
+    unit: temperaturap,
     success: function(weather) {
       html = '<h2><i class="icon-'+weather.code+'"></i> '+weather.temp+'&deg;'+weather.units.temp+'</h2>';
       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
@@ -18,7 +20,7 @@ $(document).ready(function() {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
-});
+};
 function Reloj() {
 var tiempo = new Date();
 var hora = tiempo.getHours();
