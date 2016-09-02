@@ -14,11 +14,16 @@ function ciudad() {
       html += '<ul><li>'+weather.city+', '+weather.region+'</li>';
       html += '<li class="currently">'+weather.currently+'</li>';      
       $("#weather").html(html);
+      for(var i=0;i<weather.forecast.length;i++) {
+        html += '<h5>'+weather.forecast[i].day+ ' '+weather.forecast[i].date +': &nbsp&nbsp&nbsp'+weather.forecast[i].high+'&deg;'+weather.units.temp+'/'+weather.forecast[i].low+'&deg;'+weather.units.temp+'</h5>';
+        $("#dias").html(html);
+      } 
     },
     error: function(error) {
       $("#weather").html('<p>'+error+'</p>');
     }
   });
+  
 };
 function Reloj() {
 var tiempo = new Date();
